@@ -34,5 +34,19 @@
         {
             background-color: #35443585;
         }
+        img.trending-image
+        {
+            height: 100px;
+        }
+        .trending-item
+        {
+            float: left;
+            width: 20%;
+            padding-bottom: 50px
+        }
+        .trending-wrapper
+        {
+            margin: 30px;
+        }
     </style>
 </html>
