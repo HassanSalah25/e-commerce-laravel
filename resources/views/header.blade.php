@@ -1,3 +1,11 @@
+<?php
+use App\Http\Controllers\ProductController;
+if(Session::has('user'))
+{
+  $total = ProductController::cartItem(); 
+}
+
+?>
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -17,10 +25,25 @@
           <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <ul>
-            <li class="nav navbar-nav navbar-right">
-                <a class="nav-link" href="#">Cart(0)</a>
+        <ul class="nav navbar-nav navbar-right">
+            
+            @if(Session::has('user'))
+            <li >
+              <a class="nav-link" href="#">Cart({{$total}})</a>
+          </li>
+            <li>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{Session::get('user')['name']}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                </ul>
+              </div>
             </li>
+            @else
+            <li><a class="nav-link" href="/login">Login</a></li>
+            @endif
         </ul>
       </div>
     </div>
