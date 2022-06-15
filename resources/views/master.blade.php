@@ -48,5 +48,17 @@
         {
             margin: 30px;
         }
+        .carousel-control-prev 
+        {
+            background-image: linear-gradient(to right, black , #35443500);
+        }
+        .carousel-control-next
+        {
+            background-image: linear-gradient(to left, black , #35443500)
+        }
+        img.detail-image
+        {
+            height: 200px;
+        }
     </style>
 </html>
